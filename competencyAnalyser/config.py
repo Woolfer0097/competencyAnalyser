@@ -19,7 +19,7 @@ class Settings(BaseSettings):
     CLIENT_ORIGIN: str
 
     class Config:
-        env_file = r'C:\Users\Woolfer0097\PycharmProjects\CompetencyAnalyser\.env'
+        env_file = r'.env'
 
 
 settings = Settings()
