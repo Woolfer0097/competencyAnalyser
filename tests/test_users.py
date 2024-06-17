@@ -1,4 +1,4 @@
-from hexlet_python_package.user import User
+from competencyAnalyser.user import User
 
 
 def test_instantiation():
