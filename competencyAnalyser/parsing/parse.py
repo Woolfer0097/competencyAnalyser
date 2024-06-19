@@ -1,9 +1,5 @@
-from competencyAnalyser.database import init_db
-import uuid
-from .. import schemas, models
-from sqlalchemy.orm import Session
-from fastapi import Depends, HTTPException, status, APIRouter, Response
-from ..database import get_db
+from competencyAnalyser.db.database import init_db
+from fastapi import APIRouter
 
 router = APIRouter()
 

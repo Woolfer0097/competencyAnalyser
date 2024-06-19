@@ -1,0 +1,351 @@
+{% extends "shared/base.html" %}
+
+{% block title %}Оценка компетенций{% endblock %}
+
+{% block content %}
+
+<header>
+    <nav class="nav">
+        <div class="container">
+            <div class="logo">LOGO</div>
+            <ul>
+                <li><a href="#block1">О Нас</a></li>
+                <li><a href="#partners">Партнёры</a></li>
+                <li><a href="#benefits">Преимущества</a></li>
+                <li><a href="#pricing">Тарифы</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#reviews">Отзывы</a></li>
+                <li><a href="#block3" class="button">Оценка компетенций</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+{% block style %}
+<iframe name="myIFR" style="display: none"></iframe>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+<style>
+
+    body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .nav {
+            background-color: white;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 20px;
+        }
+        .nav .logo {
+            color: black;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .nav ul li {
+            margin-left: 20px;
+        }
+        .nav ul li a {
+            color: black;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: block;
+        }
+        .nav ul li a:hover, .nav ul li a.button {
+            background-color: #575757;
+            border-radius: 4px;
+        }
+        .nav ul li a.button {
+            background-color: rgb(39, 206, 39);
+            color: white;
+            border-radius: 15px 15px 15px 15px;
+        }
+        .button {
+            background-color: rgb(39, 206, 39);
+            color: white;
+            border-radius: 15px 15px ;
+            padding: 25px 20px;
+
+        }
+    .upe-mutistep-form .step{
+    display: none;
+}
+.upe-mutistep-form .step-header .steplevel {
+    position: relative;
+    flex: 1;
+    padding-bottom: 30px;
+}
+.upe-mutistep-form .step-header .steplevel.active {
+    font-weight: 600;
+}
+.upe-mutistep-form .step-header .steplevel.finish {
+    font-weight: 600;
+    color: #009688;
+}
+.upe-mutistep-form .step-header .steplevel::before {
+
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    z-index: 9;
+    width: 20px;
+    height: 20px;
+    background-color: #d5efed;
+    border-radius: 50%;
+    border: 3px solid #ecf5f4;
+}
+.upe-mutistep-form .step-header .steplevel.active::before {
+    background-color: #3fbdb4;
+    border: 3px solid #d5f9f6;
+}
+.upe-mutistep-form .step-header .steplevel.finish::before {
+    background-color: #3fbdb4;
+    border: 3px solid #3fbdb4;
+}
+.upe-mutistep-form .step-header .steplevel::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 8px;
+    width: 100%;
+    height: 3px;
+    background-color: #f3f3f3;
+}
+.upe-mutistep-form .step-header .steplevel.active::after {
+    background-color: #a7ede8;
+}
+.upe-mutistep-form .step-header .steplevel.finish::after {
+    background-color: #009688;
+}
+.upe-mutistep-form .step-header .steplevel:last-child:after {
+    display: none;
+}
+    .page {
+
+   position: absolute;
+    top: 25%;
+    left: 25%;
+    margin-right: 25%;
+    justify-content: center;
+     box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+    }
+</style>
+
+<style>
+    #popup{
+    position: fixed;/*фиксированное позиционирование*/
+    top: -100%;/*прячем окно за пределы видимости*/
+    left: 50%;/*позиция окна слева*/
+    transform: translate(-50%,-50%);
+    z-index: 1000;/*на верхний слой*/
+    background: #fff;
+    width: 450px;
+    padding: 80px 50px 50px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+    transition: 0.5s;
+    visibility: hidden;/*скрываем окно*/
+}
+#popup.active{
+    visibility: visible;/*показываем окно*/
+    top: 50%;/*окно выдвигается сверху*/
+}
+#popup .content{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;/*направление главной оси*/
+}
+#popup .content img{
+    max-width: 80px;
+}
+#popup .content h2{
+    font-size: 24px;
+    font-weight: 500;
+    color: #333;
+    margin: 20px 0 10px;
+}
+#popup .content p{
+    text-align: center;
+    font-size: 16px;
+    color: #333;
+}
+#popup .content .inputBox{
+    position: relative;
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#popup .content .inputBox input{
+    width: 100%;
+    border: 1px solid rgba(0,0,0,0.2);
+    padding: 15px;
+    outline: none;
+    font-size: 18px;
+}
+#popup .content .inputBox input[type="submit"]{
+    max-width: 150px;
+    background: #E57373;
+    color: #fff;
+    border: none;
+}
+.close{
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    cursor: pointer;
+}
+</style>
+{% endblock %}
+
+<div class="page">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <br>
+    <h2>
+        <div style="text-align: center;">Отвечайте честно на каждый вопрос.</div>
+    </h2>
+    <h2>
+        <div style="text-align: center;">Это поможет ИИ эффективно подобрать подходящую вакансию.</div>
+    </h2>
+    <br>
+
+
+    <div class="container">
+
+        <div class="col-md-auto">
+            <form method="POST" class="upe-mutistep-form" id="Upemultistepsform" action="/api/answers/" target="myIFR">
+                <div class="step-header d-flex mb-2">
+
+
+                    <span class="steplevel"></span>
+                    <span class="steplevel"></span>
+                    <span class="steplevel"></span>
+
+                </div>
+                <div class="step">
+                    <div class="mb-3">
+                        <input class="form-control" placeholder="ФИО">
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control" placeholder="Email" name="email">
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea2" class="form-label">Example textarea</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea2" rows="5"></textarea>
+                    </div>
+                </div>
+                <div class="step">
+                    <h3>Отправляем ?</h3>
+                </div>
+                <div class="d-flex btn-row">
+                    <button class="btn btn-success fw-bold m-1" style="background-color: #36C859;" id="prevBtn"
+                            onclick="nextPrev(-1)"
+                            type="button">Назад
+                    </button>
+                    <button class="btn btn-success fw-bold m-1" style="background-color: #36C859;" id="nextBtn"
+                            onclick="nextPrev(1)"
+                            type="button"> Далее
+                    </button>
+                </div>
+
+                <br>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<div id="popup">
+  <div class="content">
+    <h2>Большое спасибо за прохождение тестирования. Ваш результат : </h2>
+      <p><b>{{answer}}</b></p>
+  </div>
+    <button type="button" onclick="popupToggle();" class="close" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+</button>
+</div>
+
+{$ block scripts %}
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+</script>
+<script>
+    var currentTab = 0;
+tabShow(currentTab);
+
+function tabShow(n) {
+    var x = document.getElementsByClassName("step");
+    x[n].style.display = "block";
+    if (n == 0 ) {
+        document.getElementById("prevBtn").style.display = "none";
+    } else {
+        document.getElementById("prevBtn").style.display = "inline";
+    }
+    if (n == (x.length - 1)) {
+        document.getElementById("nextBtn").innerHTML = "Отправить"
+    } else {
+        document.getElementById("nextBtn").innerHTML = "Далее"
+    }
+    activelevel(n)
+}
+function nextPrev(n) {
+    var x = document.getElementsByClassName("step");
+    x[currentTab].style.display = "none";
+    currentTab = currentTab + n;
+    if (currentTab >= x.length) {
+        document.getElementById("Upemultistepsform").submit();
+        document.getElementById("nextBtn").style.display = "none";
+        document.getElementById("prevBtn").style.display = "none";
+        popupToggle();
+    }
+    tabShow(currentTab);
+}
+
+function popupToggle(){
+    const popup = document.getElementById('popup');
+    popup.classList.toggle('active')
+}
+
+function backPrev(n) {
+    var x = document.getElementsByClassName("step");
+    x[n].style.display = "block";
+}
+function activelevel(n) {
+    var i, x = document.getElementsByClassName("steplevel");
+    for (i = 0; i < x.length; i++) {
+        x[i].className = x[i].className.replace(" active", "");
+    }
+    x[n].className += " active";
+}
+</script>
+{% endblock %}

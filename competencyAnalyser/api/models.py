@@ -1,5 +1,5 @@
 import uuid
-from .database import Base
+from competencyAnalyser.db.database import Base
 from sqlalchemy import TIMESTAMP, Column, ForeignKey, String, text, Text, Integer
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship

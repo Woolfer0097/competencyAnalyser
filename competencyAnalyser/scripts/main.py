@@ -1,8 +1,11 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, APIRouter, Request
 from fastapi.middleware.cors import CORSMiddleware
 from competencyAnalyser.config import settings
-from competencyAnalyser.database import init_db
-from competencyAnalyser.routers import answers, questions
+from competencyAnalyser.db.database import init_db
+from competencyAnalyser.routers import answers
+from fastapi.templating import Jinja2Templates
+
+templates = Jinja2Templates(directory="templates")
 
 app = FastAPI()
 
@@ -21,6 +24,17 @@ app.add_middleware(
 # app.include_router(questions.router, tags=["Questions"], prefix="/api/questions")
 app.include_router(answers.router, tags=['Answers'], prefix='/api/answers')
 
+general_pages_router = APIRouter()
+
+
+@general_pages_router.get("/")
+async def home(request: Request):
+    return templates.TemplateResponse(
+        "general_pages/index.html",
+        {
+            "request": request
+        })
+
 
 @app.on_event("startup")
 def on_startup():
@@ -30,3 +44,10 @@ def on_startup():
 @app.get('/api/healthchecker')
 def root():
     return {'message': 'Hello World'}
+
+
+@app.get("/quiz")
+async def quiz(request: Request):
+    return templates.TemplateResponse("general_pages/quiz.html", {
+        "request": request
+    })

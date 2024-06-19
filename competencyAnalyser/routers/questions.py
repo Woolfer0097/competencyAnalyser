@@ -1,8 +1,8 @@
 import uuid
-from .. import schemas, models
+from ..api import models, schemas
 from sqlalchemy.orm import Session
 from fastapi import Depends, HTTPException, status, APIRouter, Response
-from ..database import get_db
+from competencyAnalyser.db.database import get_db
 from ..constants import ADMIN_ID
 
 router = APIRouter()

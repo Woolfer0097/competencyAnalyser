@@ -1,0 +1,301 @@
+{% block title %}Jobster - Автоматизация подбора персонала{% endblock %}
+
+{% block style %}
+<style>
+        html {
+        scroll-behavior: smooth;
+      }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .nav {
+            background-color: white;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 20px;
+        }
+        .nav .logo {
+            color: black;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .nav ul li {
+            margin-left: 20px;
+        }
+        .nav ul li a {
+            color: black;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: block;
+        }
+        .nav ul li a:hover, .nav ul li a.button {
+            background-color: #575757;
+            border-radius: 4px;
+        }
+        .nav ul li a.button {
+            background-color: rgb(39, 206, 39);
+            color: white;
+            border-radius: 15px 15px 15px 15px;
+        }
+        .button {
+            background-color: rgb(39, 206, 39);
+            color: white;
+            border-radius: 15px 15px ;
+            padding: 25px 20px;
+
+        }
+        .button2 {
+            background-color: white;
+            border: 1px solid black;
+            color: rgb(167, 91, 167);
+            border-radius: 25px 25px ;
+            padding: 20px 20px;
+
+        }
+        .button3 {
+            background-color: white;
+
+            color: rgb(167, 91, 167);
+            border-radius: 25px 25px ;
+            padding: 20px 20px;
+
+        }
+        .par3{
+            font-size: 22px;
+            color: rgb(167, 91, 167);
+        }
+        .par1{
+            font-size:22px;
+        }
+        .namem{
+            font-size: 35px;
+            font-weight: bold;
+        }
+        #hero {
+            padding-top: 70px; /* Additional space below the navbar */
+        }
+        #double{
+            padding-top: 70px;
+        }
+        main {
+            padding-top: 60px;
+        }
+        .im1{
+            size: 50px 50px;
+
+        }
+        .im2{
+            font-size: 22px;
+            text-decoration: none;
+        }
+        .space{
+            word-spacing: 40px;
+            line-height: 4;
+            display:flexbox;
+
+        }
+        .par4{
+            font-size: 20px;
+            margin-left: 80px;
+        }
+        textarea
+        {
+            width:100%;
+            background-color: rgba(221, 160, 221, 0.378);
+            font-size: 20px;
+        }
+
+        .active {
+            background-color: #007bff;
+            color: white;
+        }
+        .container1 {
+            width: 80%;
+            margin: 40px auto;
+
+
+            border-radius: 10px;
+
+        }
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+        }
+
+    </style>
+{% endblock %}
+{% block content %}
+    <main>
+        <section id="hero">
+            <div class="blocks" id="block2">
+                <div class = "name">
+                    <p>
+                        <div class = "namem">
+                            <b><center><h1>Jobster - система автоматизации подбора персонала</h1></center></b>
+                        </div>
+                    </p>
+                </div>
+                <p><center>Оптимизируем процессы. Минимизируем расходы. Обеспечиваем аналитикой для лучших результатов.</center></p>
+
+                <section id="double"></section>
+                <center><a href="#block3"  class="button" style="text-decoration: none">Оценка компетенций</a><center>
+
+                <div class="blocks" id="block1">
+                    <section id="hero"></section>
+                    <section id="hero"></section>
+                        <center><center><img src ="Figma_1.png" width="900" height="480"></center></center>
+                    </section>
+
+                    <section id="hero">
+                        <section id="hero">
+                            <center><center><img src ="Figma_2.png" width="1316" height="174"></center></center>
+                        </section>
+                    </section>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <p>
+                <section id="hero">
+                    <section id="hero">
+                        <div class="blocks" id="block3">
+
+                        <section id="hero">
+
+                                <div class = "par1">
+                                    <center><p>Take the quiz to get a <b>personalized analysis of your <br>competencies,</b> <b> your strengths</b> and <b>get recommendations for development.</b></p><center></b>
+                                </div>
+                                <section id="hero">
+                            </section>
+
+                                    <center><center><img src ="Figma_3.png" width="720" height="340"></center></center>
+                                    <section id="double">
+                                        <section id = "hero">
+                                            <div class = "im2">
+                                                <b><center><b><b><a href="#block4" class="button2" style="text-decoration: none">Start quiz</a></b></b><center></b>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                            </section>
+                        </section>
+                    </section>
+                </section>
+            </p>
+        </section>
+        <section id="double">
+            <div class="blocks" id="block4">
+                <div class = "par3">
+                    <section id="double"></section>
+                    <section id="double"></section>
+                    <b><center><p>Choose at least 5 Preferable Categories</p></center></b>
+                </div>
+
+                <div class = " space">
+                    <div class="container1">
+                        <div class="button-grid">
+                            <button type="button" class="btn btn-outline-primary" onclick="toggleActive(this)">Адаптируемость</button>
+                            <button type="button" class="btn btn-outline-secondary" onclick="toggleActive(this)">Акцент на качество</button>
+                            <button type="button" class="btn btn-outline-success" onclick="toggleActive(this)">Амбициозность</button>
+                            <button type="button" class="btn btn-outline-danger" onclick="toggleActive(this)">Анализ проблем</button>
+                            <button type="button" class="btn btn-outline-warning" onclick="toggleActive(this)">Ведение переговоров</button>
+                            <button type="button" class="btn btn-outline-info" onclick="toggleActive(this)">Видение</button>
+                            <button type="button" class="btn btn-outline-dark" onclick="toggleActive(this)">Внимание к деталям</button>
+                            <button type="button" class="btn btn-outline-primary" onclick="toggleActive(this)">Гибкость</button>
+                            <button type="button" class="btn btn-outline-secondary" onclick="toggleActive(this)">Делегирование</button>
+                            <button type="button" class="btn btn-outline-success" onclick="toggleActive(this)">Идентификация с руководством</button>
+                            <button type="button" class="btn btn-outline-danger" onclick="toggleActive(this)">Инициатива</button>
+                            <button type="button" class="btn btn-outline-warning" onclick="toggleActive(this)">Инновационная энергия</button>
+                            <button type="button" class="btn btn-outline-info" onclick="toggleActive(this)">Командное руководство</button>
+                            <button type="button" class="btn btn-outline-dark" onclick="toggleActive(this)">Коммерческая энергия</button>
+                            <button type="button" class="btn btn-outline-primary" onclick="toggleActive(this)">Контроль выполнения</button>
+                            <button type="button" class="btn btn-outline-secondary" onclick="toggleActive(this)">Мастерство</button>
+                            <button type="button" class="btn btn-outline-success" onclick="toggleActive(this)">Настойчивость</button>
+                            <button type="button" class="btn btn-outline-danger" onclick="toggleActive(this)">Независимость</button>
+                            <button type="button" class="btn btn-outline-warning" onclick="toggleActive(this)">Образ действий</button>
+                            <button type="button" class="btn btn-outline-info" onclick="toggleActive(this)">Обучение и сопровождение</button>
+                            <button type="button" class="btn btn-outline-dark" onclick="toggleActive(this)">Общественное сознание</button>
+                            <button type="button" class="btn btn-outline-primary" onclick="toggleActive(this)">Общительность</button>
+                            <button type="button" class="btn btn-outline-secondary" onclick="toggleActive(this)">Организационная чувствительность</button>
+                            <button type="button" class="btn btn-outline-success" onclick="toggleActive(this)">Ориентация на клиента</button>
+                            <button type="button" class="btn btn-outline-danger" onclick="toggleActive(this)">Ориентация на потребности бизнеса</button>
+                            <button type="button" class="btn btn-outline-warning" onclick="toggleActive(this)">Ориентация на результат</button>
+                            <button type="button" class="btn btn-outline-info" onclick="toggleActive(this)">Ответственность</button>
+                            <button type="button" class="btn btn-outline-dark" onclick="toggleActive(this)">Письменное выражение</button>
+                            <button type="button" class="btn btn-outline-primary" onclick="toggleActive(this)">Планирование и организация</button>
+                            <button type="button" class="btn btn-outline-secondary" onclick="toggleActive(this)">Политическая чувствительность</button>
+                            <button type="button" class="btn btn-outline-success" onclick="toggleActive(this)">Потребность в достижениях</button>
+                            <button type="button" class="btn btn-outline-danger" onclick="toggleActive(this)">Проницательность бизнеса</button>
+                            <button type="button" class="btn btn-outline-warning" onclick="toggleActive(this)">Рабочие контакты</button>
+                            <button type="button" class="btn btn-outline-info" onclick="toggleActive(this)">Развитие сотрудников</button>
+                            <button type="button" class="btn btn-outline-dark" onclick="toggleActive(this)">Решительность</button>
+                            <button type="button" class="btn btn-outline-primary" onclick="toggleActive(this)">Саморазвитие</button>
+                            <button type="button" class="btn btn-outline-secondary" onclick="toggleActive(this)">Словесное выражение</button>
+                            <button type="button" class="btn btn-outline-success" onclick="toggleActive(this)">Смелость</button>
+                            <button type="button" class="btn btn-outline-danger" onclick="toggleActive(this)">Сотрудничество</button>
+                            <button type="button" class="btn btn-outline-warning" onclick="toggleActive(this)">Способность к обучению</button>
+                            <button type="button" class="btn btn-outline-info" onclick="toggleActive(this)">Творческий подход</button>
+                            <button type="button" class="btn btn-outline-dark" onclick="toggleActive(this)">Убедительность</button>
+                            <button type="button" class="btn btn-outline-primary" onclick="toggleActive(this)">Умение преподносить информацию</button>
+                            <button type="button" class="btn btn-outline-secondary" onclick="toggleActive(this)">Умение слушать</button>
+                            <button type="button" class="btn btn-outline-success" onclick="toggleActive(this)">Упорство</button>
+                            <button type="button" class="btn btn-outline-danger" onclick="toggleActive(this)">Управление</button>
+                            <button type="button" class="btn btn-outline-warning" onclick="toggleActive(this)">Управление конфликтом</button>
+                            <button type="button" class="btn btn-outline-info" onclick="toggleActive(this)">Управление стрессом</button>
+                            <button type="button" class="btn btn-outline-dark" onclick="toggleActive(this)">Формирование суждений</button>
+                            <button type="button" class="btn btn-outline-primary" onclick="toggleActive(this)">Целостность</button>
+                            <button type="button" class="btn btn-outline-secondary" onclick="toggleActive(this)">Чувствительность</button>
+                            <button type="button" class="btn btn-outline-success" onclick="toggleActive(this)">Энергия</button>
+                        </div>
+                    </div>
+                    {% block scripts %}
+                    <script>
+                        let selectedButtonTexts = [];
+                        function toggleActive(button) {
+                            button.classList.toggle('active');
+                            const buttonText = button.textContent.trim();
+                            if (button.classList.contains('active')) {
+                                selectedButtonTexts.push(buttonText);
+                            } else {
+                                selectedButtonTexts = selectedButtonTexts.filter(text => text !== buttonText);
+                            }
+
+
+                            console.log("Selected button texts:", selectedButtonTexts);
+                         }
+                    </script>
+                    {% endblock %}
+                </div>
+
+                <div class = "par3">
+                    <b><center><b><b><a href="quiz_new.html" class="button3" style="text-decoration: none">Send</a></b></b><center></b>
+                </div>
+            </div>
+            </div>
+        </section>
+        <section id="double"></section>
+        <section id="double"></section>
+        <a href = "hrpage.html" class = "button3"style=" text-decoration: none"> Если вы HR</a>
+    </main>
+{$ endblock %}
