@@ -28,8 +28,6 @@ class Question(Base):
     id = Column(UUID(as_uuid=True), primary_key=True, nullable=False,)
     competency_id = Column(UUID(as_uuid=True), ForeignKey('competencies.id'),)
     content = Column(Text, nullable=False)
-    # Accurate content of the answer, that user should satisfy to (delimiter: ";")
-    accurate_answer = Column(Text, nullable=False)
 
     answer = relationship('Answer', backref='question', uselist=False)
     recommendation = relationship('Recommendation', backref='question', uselist=False)
