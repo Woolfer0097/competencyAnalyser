@@ -1,4 +1,4 @@
-from fastapi import FastAPI, APIRouter, Request
+from fastapi import FastAPI, APIRouter, Request, Form
 from fastapi.middleware.cors import CORSMiddleware
 from competencyAnalyser.config import settings
 from competencyAnalyser.db.database import init_db
@@ -47,7 +47,12 @@ def root():
 
 
 @app.get("/quiz")
-async def quiz(request: Request):
+async def quiz(answers: list = Form()):
+    questions: list[str] = generate_questions()
     return templates.TemplateResponse("general_pages/quiz.html", {
-        "request": request
+        "questions": questions
     })
+
+
+def generate_questions():
+    pass

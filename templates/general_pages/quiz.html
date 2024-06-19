@@ -230,41 +230,24 @@
     </h2>
     <br>
 
-
     <div class="container">
-
         <div class="col-md-auto">
             <form method="POST" class="upe-mutistep-form" id="Upemultistepsform" action="/api/answers/" target="myIFR">
                 <div class="step-header d-flex mb-2">
-
-
-                    <span class="steplevel"></span>
-                    <span class="steplevel"></span>
-                    <span class="steplevel"></span>
-
+                    {% for question in questions %}
+                        <span class="steplevel"></span>
+                    {% endfor %}
                 </div>
-                <div class="step">
-                    <div class="mb-3">
-                        <input class="form-control" placeholder="ФИО">
+                {% for question in questions %}
+                    <div class="step">
+                        <div class="mb-3">
+                            <label for="Textarea" class="form-label">{% question %}</label>
+                            <textarea name="answers" class="form-control" id="Textarea" rows="5"></textarea>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <input type="email" class="form-control" placeholder="Email" name="email">
-                    </div>
-                </div>
+                {% endfor %}
                 <div class="step">
-                    <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="mb-3">
-                        <label for="exampleFormControlTextarea2" class="form-label">Example textarea</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea2" rows="5"></textarea>
-                    </div>
-                </div>
-                <div class="step">
-                    <h3>Отправляем ?</h3>
+                    <h3>Отправляем?</h3>
                 </div>
                 <div class="d-flex btn-row">
                     <button class="btn btn-success fw-bold m-1" style="background-color: #36C859;" id="prevBtn"
