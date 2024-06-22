@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home Page</title>
+    <style>
+
+.container {
+
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    margin-right: 25%;
+    justify-content: center;
+    align-items : center;
+     box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+    border: 1px solid #47616c;
+    border-radius: 12px;
+    flex-direction: column;
+    display:flex;
+
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.img-box {
+    width: 40%;
+    height: 40%;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.img {
+    width: 100%;
+}
+
+.google-btn {
+    display: flex;
+    left: 50%;
+    align-items: center;
+    background-color: #47616c;
+    color: white;
+    width: 200px;
+    height: 50px;
+    border-radius: 5px;
+    box-shadow: 0px 3px 10px -2px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    padding-inline: 8px;
+    text-decoration: none;
+}
+
+.google-icon {
+    background: url("https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg") transparent 5px 50% no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+    width: 35px;
+    height: 50px;
+}
+
+.btn-text {
+    margin-left: 10px;
+}
+    </style>
+  </head>
+<style>
+    body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .nav {
+            background-color: white;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .nav .container_bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 20px;
+        }
+        .nav .logo {
+            color: black;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .nav ul li {
+            margin-left: 20px;
+        }
+        .nav ul li a {
+            color: black;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: block;
+        }
+        .nav ul li a:hover, .nav ul li a.button {
+            background-color: #575757;
+            border-radius: 4px;
+        }
+        .nav ul li a.button {
+            background-color: rgb(39, 206, 39);
+            color: white;
+            border-radius: 15px 15px 15px 15px;
+        }
+        .button {
+            background-color: rgb(39, 206, 39);
+            color: white;
+            border-radius: 15px 15px ;
+            padding: 25px 20px;
+
+        }
+</style>
+  <header>
+        <nav class="nav">
+            <div class="container_bar">
+                <div class="logo">LOGO</div>
+                <ul>
+                    <li><a href="#block1">О Нас</a></li>
+                    <li><a href="#partners">Партнёры</a></li>
+                    <li><a href="#benefits">Преимущества</a></li>
+                    <li><a href="#pricing">Тарифы</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#reviews">Отзывы</a></li>
+                    <li><a href="#block3" class="button">Оценка компетенций</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+
+
+
+
+  <body>
+    <div class="container" >
+      <div class="header">
+        <h4>Вход для Hr'ов</h4>
+        <div class="img-box">
+            <img class="img" src="avatar.png" />
+        </div>
+      </div>
+      <a href="/login" class="google-btn">
+        <div class="google-icon"></div>
+        <span class="btn-text">Вход через Google</span>
+      </a>
+        </div>
+    </div>
+  </body>
+</html>
