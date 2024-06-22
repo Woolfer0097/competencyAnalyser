@@ -4,7 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="71843685-aca4-4888-844d-82e9adc134be" name="Changes" comment="questions api started" />
+    <list default="true" id="71843685-aca4-4888-844d-82e9adc134be" name="Changes" comment="quiz set up">
+      <change afterPath="$PROJECT_DIR$/alembic.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alembic/README" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alembic/env.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alembic/script.py.mako" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/competencyAnalyser/parsing/texts/to_parse.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/competencyAnalyser/parsing/texts/to_parse_bv.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/competencyAnalyser/routers/business_types.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/competencyAnalyser/routers/users.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/competencyAnalyser/routers/vacancies.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/competencyAnalyser/api/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/competencyAnalyser/api/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/competencyAnalyser/api/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/competencyAnalyser/api/schemas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/competencyAnalyser/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/competencyAnalyser/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/competencyAnalyser/parsing/parse.py" beforeDir="false" afterPath="$PROJECT_DIR$/competencyAnalyser/parsing/parse.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/competencyAnalyser/parsing/texts/competencies.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/competencyAnalyser/routers/answers.py" beforeDir="false" afterPath="$PROJECT_DIR$/competencyAnalyser/routers/answers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/competencyAnalyser/routers/competencies.py" beforeDir="false" afterPath="$PROJECT_DIR$/competencyAnalyser/routers/competencies.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/competencyAnalyser/routers/questions.py" beforeDir="false" afterPath="$PROJECT_DIR$/competencyAnalyser/routers/questions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/competencyAnalyser/scripts/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/competencyAnalyser/scripts/competencyAnalyser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/poetry.lock" beforeDir="false" afterPath="$PROJECT_DIR$/poetry.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_users.py" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -42,7 +68,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Woolfer0097/PycharmProjects/CompetencyAnalyser&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Woolfer0097/PycharmProjects/CompetencyAnalyser/alembic&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -53,15 +79,19 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Woolfer0097\PycharmProjects\CompetencyAnalyser\alembic" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Woolfer0097\PycharmProjects\CompetencyAnalyser\competencyAnalyser\scripts" />
+      <recent name="C:\Users\Woolfer0097\PycharmProjects\CompetencyAnalyser\competencyAnalyser\api" />
       <recent name="C:\Users\Woolfer0097\PycharmProjects\CompetencyAnalyser\templates\general_pages" />
       <recent name="C:\Users\Woolfer0097\PycharmProjects\CompetencyAnalyser\competencyAnalyser\db" />
-      <recent name="C:\Users\Woolfer0097\PycharmProjects\CompetencyAnalyser\competencyAnalyser\api" />
       <recent name="C:\Users\Woolfer0097\PycharmProjects\CompetencyAnalyser\competencyAnalyser" />
     </key>
   </component>
   <component name="RunManager" selected="Python.parse">
-    <configuration name="main (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="competencyAnalyser" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="CompetencyAnalyser" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -75,7 +105,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/competencyAnalyser/scripts/main.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Woolfer0097\PycharmProjects\CompetencyAnalyser\competencyAnalyser\scripts\competencyAnalyser.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -157,14 +187,15 @@
       <list>
         <item itemvalue="Python.parse" />
         <item itemvalue="Python.test" />
-        <item itemvalue="Python.main (1)" />
+        <item itemvalue="Python.competencyAnalyser" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-48aec45f0201-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.17011.127" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-PY-241.17011.127" />
+        <option value="bundled-python-sdk-48aec45f0201-7e9c3bbb6e34-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.17011.127" />
       </set>
     </attachedChunks>
   </component>
@@ -184,6 +215,8 @@
       <workItem from="1718624766389" duration="16948000" />
       <workItem from="1718819954886" duration="557000" />
       <workItem from="1718820542009" duration="2463000" />
+      <workItem from="1718989838923" duration="10101000" />
+      <workItem from="1719009853878" duration="259000" />
     </task>
     <task id="LOCAL-00001" summary="API of user's answers">
       <option name="closed" value="true" />
@@ -232,7 +265,7 @@
     <option name="LAST_COMMIT_MESSAGE" value="questions api started" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/CompetencyAnalyser$parse.coverage" NAME="parse Coverage Results" MODIFIED="1718645531903" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/competencyAnalyser/parsing" />
+    <SUITE FILE_PATH="coverage/CompetencyAnalyser$parse.coverage" NAME="parse Coverage Results" MODIFIED="1718833033237" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/competencyAnalyser/parsing" />
     <SUITE FILE_PATH="coverage/CompetencyAnalyser$main.coverage" NAME="main Coverage Results" MODIFIED="1718135404750" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/CompetencyAnalyser$main__1_.coverage" NAME="main (1) Coverage Results" MODIFIED="1718643576558" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/competencyAnalyser/scripts" />
     <SUITE FILE_PATH="coverage/CompetencyAnalyser$test.coverage" NAME="test Coverage Results" MODIFIED="1718643607726" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/competencyAnalyser" />

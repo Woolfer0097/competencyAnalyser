@@ -1,126 +1,165 @@
+from pydantic import BaseModel, EmailStr, Field, condecimal
+from typing import Optional, List
+from uuid import UUID
 from datetime import datetime
-from typing import List
-import uuid
-from pydantic import BaseModel, EmailStr, constr
 
 
-class UserBaseSchema(BaseModel):
-    username: str
-    email: EmailStr
-    password: str
+# Base schemas
 
-    class Config:
-        orm_mode = True
+class BusinessTypeBase(BaseModel):
+    title: str = Field(..., max_length=255)
 
 
-class CreateUserSchema(UserBaseSchema):
-    password: constr(min_length=8)
-    passwordConfirm: str
-    role: str = 'user'
-    verified: bool = False
-
-
-class LoginUserSchema(BaseModel):
-    email: EmailStr
-    password: constr(min_length=8)
-
-
-class UserResponse(UserBaseSchema):
-    id: uuid.UUID
-    created_at: datetime
-    updated_at: datetime
-
-
-class FilteredUserResponse(UserBaseSchema):
-    id: uuid.UUID
-
-
-class CompetencyBaseSchema(BaseModel):
+class VacancyBase(BaseModel):
     title: str
 
+
+# Response schemas
+
+class BusinessTypeOut(BusinessTypeBase):
+    id: UUID
+    vacancies: List['VacancyOut'] = []
+
     class Config:
         orm_mode = True
 
 
-class CompetencyResponse(CompetencyBaseSchema):
-    id: int
+class VacancyOut(VacancyBase):
+    id: UUID
+    business_types: List[BusinessTypeOut] = []
+
+    class Config:
+        orm_mode = True
 
 
-class CompetencyCreateSchema(CompetencyBaseSchema):
+# Request schemas
+
+class BusinessTypeCreate(BusinessTypeBase):
     pass
 
 
-class RecommendationBaseSchema(BaseModel):
-    question_id: uuid.UUID
-    content: str
-
-    class Config:
-        orm_mode = True
+class BusinessTypeUpdate(BusinessTypeBase):
+    title: Optional[str] = Field(None, max_length=255)
 
 
-class QuestionBaseSchema(BaseModel):
-    question: str
-    competency_id: uuid.UUID
-    accurate_answers: List[str]
-
-    class Config:
-        orm_mode = True
+class VacancyCreate(VacancyBase):
+    business_type_ids: List[UUID]
 
 
-class QuestionResponse(QuestionBaseSchema):
-    id: uuid.UUID
-    created_at: datetime
-    updated_at: datetime
+class VacancyUpdate(BaseModel):
+    title: Optional[str] = None
+    business_type_ids: Optional[List[UUID]] = None
 
 
-class CreateQuestionSchema(QuestionBaseSchema):
-    pass
+# Other schemas (Answer, User, Question, Competency)
 
-
-class UpdateQuestionSchema(QuestionBaseSchema):
-    question: str
-    competency_id: uuid.UUID
-    accurate_answers: List[str]
-
-
-class ListQuestionResponse(QuestionBaseSchema):
-    status: str
-    results: int
-    questions: List[QuestionResponse]
-
-
-class AnswerBaseSchema(BaseModel):
+# Answer schemas
+class AnswerBase(BaseModel):
     content: str
     grade: int
-    question_id: uuid.UUID | None = None
-    user_id: uuid.UUID | None = None
-
-    class Config:
-        orm_mode = True
 
 
-class AnswerResponse(AnswerBaseSchema):
-    id: uuid.UUID
+class AnswerOut(AnswerBase):
+    id: UUID
+    question_id: UUID
+    user_id: UUID
     created_at: datetime
     updated_at: datetime
 
+    class Config:
+        orm_mode = True
 
-class CreateAnswerSchema(AnswerBaseSchema):
-    pass
+
+class AnswerCreate(AnswerBase):
+    question_id: UUID
+    user_id: UUID
 
 
-class UpdateAnswerSchema(BaseModel):
-    question_id: uuid.UUID
+class AnswerResponse(BaseModel):
+    id: UUID
+    question_id: UUID
+    user_id: UUID
     content: str
-    user_id: uuid.UUID | None = None
-    created_at: datetime | None = None
-    updated_at: datetime | None = None
+    grade: condecimal(gt=-1, le=5)
+    created_at: datetime
+    updated_at: datetime
 
     class Config:
         orm_mode = True
 
 
-class ListAnswerResponse(BaseModel):
+class AnswerListResponse(BaseModel):
     status: str
     results: int
     answers: List[AnswerResponse]
+
+
+class AnswerUpdate(BaseModel):
+    content: Optional[str] = None
+    grade: Optional[int] = None
+
+
+# User schemas
+class UserBase(BaseModel):
+    email: EmailStr
+
+
+class UserOut(UserBase):
+    id: UUID
+    answers: Optional[str] = None
+    recommendations: Optional[str] = None
+
+    class Config:
+        orm_mode = True
+
+
+class UserCreate(UserBase):
+    pass
+
+
+class UserUpdate(BaseModel):
+    email: Optional[EmailStr] = None
+    answers: Optional[str] = None
+    recommendations: Optional[str] = None
+
+
+# Question schemas
+class QuestionBase(BaseModel):
+    content: str
+
+
+class QuestionOut(QuestionBase):
+    id: UUID
+    competency_id: UUID
+
+    class Config:
+        orm_mode = True
+
+
+class QuestionCreate(QuestionBase):
+    competency_id: UUID
+
+
+class QuestionUpdate(BaseModel):
+    content: Optional[str] = None
+    competency_id: Optional[UUID] = None
+
+
+# Competency schemas
+class CompetencyBase(BaseModel):
+    title: str
+
+
+class CompetencyOut(CompetencyBase):
+    id: UUID
+
+    class Config:
+        orm_mode = True
+
+
+class CompetencyCreate(CompetencyBase):
+    pass
+
+
+class CompetencyUpdate(BaseModel):
+    title: Optional[str] = None

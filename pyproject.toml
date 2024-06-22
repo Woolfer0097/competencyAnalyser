@@ -1,4 +1,7 @@
 [tool.poetry]
+packages = [
+  { include = "competencyAnalyser" },
+]
 name = "competencyAnalyser"
 version = "0.3.0"
 description = ""
@@ -11,6 +14,11 @@ fastapi = "^0.111.0"
 uvicorn = "^0.30.1"
 jinja2 = "^3.1.4"
 python-multipart = "^0.0.9"
+authlib = "^1.3.1"
+sqlalchemy = "^2.0.31"
+psycopg2-binary = "^2.9.9"
+itsdangerous = "^2.2.0"
+alembic = "^1.13.1"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.4.2"
@@ -18,7 +26,7 @@ pytest-cov = "^4.1.0"
 flake8 = "^6.1.0"
 
 [tool.poetry.scripts]
-competency-analyser = "competency-analyser.scripts.main:main"
+competency-analyser = "competencyAnalyser.scripts.competencyAnalyser:main"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

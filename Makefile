@@ -4,6 +4,12 @@ install:
 test:
 	poetry run pytest
 
+package-install:
+	python3 -m pip install --user dist/*.whl
+
+publish:
+	poetry publish --dry-run
+
 test-coverage:
 	poetry run pytest --cov=hexlet_python_package --cov-report xml
 

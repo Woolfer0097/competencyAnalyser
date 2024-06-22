@@ -3,6 +3,7 @@ from pydantic.v1 import BaseSettings
 import os
 from dotenv import load_dotenv
 
+
 class Settings(BaseSettings):
     DATABASE_PORT: int
     POSTGRES_PASSWORD: str
@@ -22,7 +23,8 @@ class Settings(BaseSettings):
     class Config:
         env_file = r'.env'
 
+
 load_dotenv()
-CLIENT_ID  = os.environ.get('client-id',None)
-CLIENT_SECRET = os.environ.get('client-secret',None)
+CLIENT_ID = os.environ.get('client-id', None)
+CLIENT_SECRET = os.environ.get('client-secret', None)
 settings = Settings()

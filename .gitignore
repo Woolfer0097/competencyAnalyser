@@ -7,3 +7,6 @@ dist/
 coverage.xml
 .pytest_cache/
 .env
+poetry.lock
+templates/
+.idea
