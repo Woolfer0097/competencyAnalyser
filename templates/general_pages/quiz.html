@@ -4,23 +4,6 @@
 
 {% block content %}
 
-<header>
-    <nav class="nav">
-        <div class="container">
-            <div class="logo">LOGO</div>
-            <ul>
-                <li><a href="#block1">О Нас</a></li>
-                <li><a href="#partners">Партнёры</a></li>
-                <li><a href="#benefits">Преимущества</a></li>
-                <li><a href="#pricing">Тарифы</a></li>
-                <li><a href="#faq">FAQ</a></li>
-                <li><a href="#reviews">Отзывы</a></li>
-                <li><a href="#block3" class="button">Оценка компетенций</a></li>
-            </ul>
-        </div>
-    </nav>
-</header>
-
 {% block style %}
 <iframe name="myIFR" style="display: none"></iframe>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -236,11 +219,11 @@
         <div class="col-md-auto">
             <form method="POST" class="upe-mutistep-form" id="Upemultistepsform" action="/api/answers/" target="myIFR">
                 <div class="step-header d-flex mb-2">
+                    <span class="steplevel"></span>
 
-
-                    <span class="steplevel"></span>
-                    <span class="steplevel"></span>
-                    <span class="steplevel"></span>
+                    {% for question in questions %}
+                        <span class="steplevel"></span>
+                    {% endfor %}
 
                 </div>
                 <div class="step">
@@ -251,18 +234,14 @@
                         <input type="email" class="form-control" placeholder="Email" name="email">
                     </div>
                 </div>
-                <div class="step">
-                    <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                {% for question in questions %}
+                    <div class="step">
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">{{ question }}</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                        </div>
                     </div>
-                </div>
-                <div class="step">
-                    <div class="mb-3">
-                        <label for="exampleFormControlTextarea2" class="form-label">Example textarea</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea2" rows="5"></textarea>
-                    </div>
-                </div>
+                {% endfor %}
                 <div class="step">
                     <h3>Отправляем ?</h3>
                 </div>

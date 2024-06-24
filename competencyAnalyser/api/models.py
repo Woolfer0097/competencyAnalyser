@@ -52,11 +52,11 @@ class BusinessType(Base):
     __tablename__ = 'business_types'
     id = Column(UUID(as_uuid=True), primary_key=True, nullable=False, default=uuid.uuid4)
     title = Column(String(255), unique=True, nullable=False)
-    vacancies = relationship('Vacancy', secondary=vacancy_business_type, back_populates='business_types')
 
 
 class Vacancy(Base):
     __tablename__ = 'vacancies'
     id = Column(UUID(as_uuid=True), primary_key=True, nullable=False, default=uuid.uuid4)
     title = Column(String(255), unique=True, nullable=False)
-    business_types = relationship('BusinessType', secondary=vacancy_business_type, back_populates='vacancies')
+
+    business_types = relationship('BusinessType', secondary=vacancy_business_type, backref='vacancy')

@@ -19,12 +19,14 @@ class Settings(BaseSettings):
     JWT_ALGORITHM: str
 
     CLIENT_ORIGIN: str
+    OPENAI_API_KEY: str
 
     class Config:
         env_file = r'.env'
 
 
 load_dotenv()
+API_KEY = os.environ.get("OPENAI_API_KEY")
 CLIENT_ID = os.environ.get('client-id', None)
 CLIENT_SECRET = os.environ.get('client-secret', None)
 settings = Settings()

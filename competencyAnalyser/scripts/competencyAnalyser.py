@@ -2,41 +2,22 @@
 # -*- coding: utf-8 -*-
 import uuid
 
+import requests
 from fastapi import FastAPI, APIRouter, Request, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
+from starlette.staticfiles import StaticFiles
 
 from competencyAnalyser.api.models import Competency, Question, Vacancy, BusinessType
 from competencyAnalyser.config import settings
 from competencyAnalyser.db.database import init_db, get_db
-from competencyAnalyser.routers import answers, questions, users, vacancies, business_types, competencies
+from competencyAnalyser.routers import answers, questions, users, vacancies, business_types, competencies, main, ai
 from fastapi.templating import Jinja2Templates
-from starlette.requests import Request
-from starlette.responses import RedirectResponse
-from starlette.middleware.sessions import SessionMiddleware
-from competencyAnalyser.config import CLIENT_ID, CLIENT_SECRET
-from authlib.integrations.starlette_client import OAuth, OAuthError
-from fastapi.staticfiles import StaticFiles
+from competencyAnalyser.constants import *
 
 templates = Jinja2Templates(directory="templates")
 
 app = FastAPI()
-
-# app.add_middleware(SessionMiddleware, secret_key ="secret_key_mega_string_brbrbrbr")
-# app.mount("/templates", StaticFiles(directory="templates"), name="templates")
-
-oauth = OAuth()
-oauth.register(
-    name = 'google',
-    server_metadata_url='https://accounts.google.com/.well-known/openid-configuration',
-    client_id = CLIENT_ID,
-    client_secret = CLIENT_SECRET,
-    client_kwargs={
-        'scope':'email openid profile',
-        'redirect_url' : 'http://localhost:8000/auth'
-    }
-)
-
 
 origins = [
     settings.CLIENT_ORIGIN,
@@ -50,24 +31,15 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(answers.router, prefix="/answers", tags=["Answers"])
-app.include_router(questions.router, prefix="/questions", tags=["Questions"])
-app.include_router(users.router, prefix="/users", tags=["Users"])
-app.include_router(vacancies.router, prefix="/vacancies", tags=["Vacancies"])
-app.include_router(business_types.router, prefix="/business-types", tags=["Business Types"])
-app.include_router(competencies.router, prefix="/competencies", tags=["Competencies"])
-
-general_pages_router = APIRouter()
-
-
-@general_pages_router.get("/")
-async def home(request: Request):
-    return templates.TemplateResponse(
-        "general_pages/index.html",
-        {
-            "request": request
-        })
-
+app.mount("/competencyAnalyser/static", StaticFiles(directory="static"), name="static")
+app.include_router(ai.router, prefix="/api/ai", tags=["/ai"])
+app.include_router(main.router, tags=["Main"])
+app.include_router(answers.router, prefix="/api/answers", tags=["Answers"])
+app.include_router(questions.router, prefix="/api/questions", tags=["Questions"])
+app.include_router(users.router, prefix="/api/users", tags=["Users"])
+app.include_router(vacancies.router, prefix="/api/vacancies", tags=["Vacancies"])
+app.include_router(business_types.router, prefix="/api/business-types", tags=["Business Types"])
+app.include_router(competencies.router, prefix="/api/competencies", tags=["Competencies"])
 
 @app.on_event("startup")
 def on_startup():
@@ -77,65 +49,6 @@ def on_startup():
 @app.get('/api/healthchecker')
 def root():
     return {'message': 'Hello World'}
-
-
-@app.get("/quiz")
-async def quiz(request: Request):
-    return templates.TemplateResponse("general_pages/quiz.html", {
-        "request": request
-    })
-@app.get("/hr_auth_page")
-async def auth(request: Request):
-
-    user = request.session.get('user')
-    if user:
-        return RedirectResponse('welcome')
-
-    return templates.TemplateResponse("general_pages/hr_auth_page.html", {
-        "request": request
-    })
-
-@app.get('/welcome')
-def welcome(request: Request):
-    user = request.session.get('user')
-    if not user:
-        return RedirectResponse('/')
-    return templates.TemplateResponse(
-        name='welcome.html',
-        context={'request': request, 'user': user}
-    )
-
-
-@app.get("/login")
-async def login(request: Request):
-    url = request.url_for('auth')
-    return await oauth.google.authorize_redirect(request, url)
-
-
-@app.get('/auth')
-async def auth(request: Request):
-    try:
-        token = await oauth.google.authorize_access_token(request)
-    except OAuthError as e:
-        return templates.TemplateResponse(
-            name='error.html',
-            context={'request': request, 'error': e.error}
-        )
-    user = token.get('userinfo')
-    if user:
-        request.session['user'] = dict(user)
-    return RedirectResponse('welcome')
-
-
-@app.get('/logout')
-def logout(request: Request):
-    request.session.pop('user')
-    request.session.clear()
-    return RedirectResponse('/')
-
-
-FILE_PATH = r'competencyAnalyser/parsing/texts/to_parse.txt'
-FILE_PATH_2 = r'competencyAnalyser/parsing/texts/to_parse_bv.txt'
 
 
 @app.get("/parse_qc")
@@ -215,11 +128,11 @@ def parse_business_with_vacancies(db: Session = Depends(get_db)):
     return {"status": "success", "message": "Parsing and database update completed"}
 
 
-# def main():
-#     import uvicorn
-#     uvicorn.run(app, host="127.0.0.1", port=8000, reload=True)
-#
-#
-# if __name__ == '__main__':
-#     init_db()
-#     main()
+def main():
+    import uvicorn
+    uvicorn.run(app, host="104.248.241.234", port=8000, reload=True)
+
+
+if __name__ == '__main__':
+    init_db()
+    main()

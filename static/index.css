@@ -1,0 +1,164 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.nav {
+    background-color: white;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 20px;
+}
+
+.nav .logo {
+    color: black;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav ul li {
+    margin-left: 20px;
+}
+
+.nav ul li a {
+    color: black;
+    text-decoration: none;
+    padding: 14px 20px;
+    display: block;
+}
+
+.nav ul li a:hover, .nav ul li a.button {
+    background-color: #575757;
+    border-radius: 4px;
+}
+
+.nav ul li a.button {
+    background-color: rgb(39, 206, 39);
+    color: white;
+    border-radius: 15px 15px 15px 15px;
+}
+
+.button {
+    background-color: rgb(39, 206, 39);
+    color: white;
+    border-radius: 15px 15px;
+    padding: 25px 20px;
+
+}
+
+.button1 {
+    background-color: white;
+    border: 1px solid black;
+    color: rgb(167, 91, 167);
+    border-radius: 25px 25px;
+    padding: 20px 20px;
+}
+
+.button2 {
+    background-color: white;
+    border: 1px solid black;
+    color: rgb(167, 91, 167);
+    border-radius: 25px 25px;
+    padding: 20px 20px;
+
+}
+
+.button3 {
+    background-color: white;
+
+    color: rgb(167, 91, 167);
+    border-radius: 25px 25px;
+    padding: 20px 20px;
+
+}
+
+.par3 {
+    font-size: 22px;
+    color: rgb(167, 91, 167);
+}
+
+.par1 {
+    font-size: 22px;
+}
+
+.namem {
+    font-size: 35px;
+    font-weight: bold;
+}
+
+#hero {
+    padding-top: 70px; /* Additional space below the navbar */
+}
+
+#double {
+    padding-top: 70px;
+}
+
+main {
+    padding-top: 60px;
+}
+
+.im1 {
+    size: 50px 50px;
+
+}
+
+.im2 {
+    font-size: 22px;
+    text-decoration: none;
+}
+
+.space {
+    word-spacing: 40px;
+    line-height: 4;
+    display: flexbox;
+
+}
+
+.par4 {
+    font-size: 20px;
+    margin-left: 80px;
+}
+
+textarea {
+    width: 100%;
+    background-color: rgba(221, 160, 221, 0.378);
+    font-size: 20px;
+}
+
+.active {
+    background-color: #007bff;
+    color: white;
+}
+
+.container1 {
+    width: 80%;
+    margin: 40px auto;
+    border-radius: 35px;
+}
+
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
